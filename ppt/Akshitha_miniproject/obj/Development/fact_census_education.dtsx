@@ -1,0 +1,2134 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2019 10:55:43 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CHNSIPDT0T1119"
+  DTS:CreatorName="CORP\ABOJAGAR"
+  DTS:DTSID="{00E1B92F-F3ED-46DA-91C6-684C0B3BC0A8}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="fact_census_education"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A9A6D050-0781-4DB0-A8C1-E026BC6BBD32}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A1B72CC3-006D-4EE0-A851-C2823368DA3B}"
+      DTS:ObjectName="blrinforma.trainingdb_chennai.bissis3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=blrinforma;User ID=bissis3;Initial Catalog=trainingdb_chennai;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf0maE4ca1k2jUt22vUrZswAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACwrEODuvM9DzziL2MoeQZ+AAAAAASAAACgAAAAEAAAAHIbEu7lu4N6pWW7irwQEcYQAAAAqfsAKaQMQ+ilbzEAd9qHsBQAAAA7SbQeYRl+2R7cb/TkqFXMS/5Z7A</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1B1D14C1-5EC5-475A-8A53-5F51B539506F}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\census"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="census"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[cr_1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\census.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                      name="PERSON_ID"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[DOOR NUMBER]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]"
+                      name="DOOR NUMBER"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of DOB]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]"
+                      name="Copy of DOB"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      length="6"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      name="GENDER"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENT MARRTIAL STATUS]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]"
+                      name="CURRENT MARRTIAL STATUS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[RELIGION]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RELIGION]"
+                      name="RELIGION"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CASTE]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CASTE]"
+                      name="CASTE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[DISABILITY]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DISABILITY]"
+                      name="DISABILITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF DISABILITY]"
+                      length="12"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]"
+                      name="TYPE OF DISABILITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[LITERACY STATUS]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]"
+                      name="LITERACY STATUS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENTSTATUS OF ATTENDANCE]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      name="CURRENTSTATUS OF ATTENDANCE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[HIGHEST EDUCATION LEVEL ]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      name="HIGHEST EDUCATION LEVEL "
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[OCCUPATION]"
+                      length="17"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]"
+                      name="OCCUPATION"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[NATURE OF INDUSTRY]"
+                      length="17"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]"
+                      name="NATURE OF INDUSTRY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      length="13"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      name="SECTOR"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SALARY]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[SALARY]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SALARY]"
+                      name="SALARY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[MODE OF TRAVELLING TO WORK PLACE]"
+                      length="7"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      name="MODE OF TRAVELLING TO WORK PLACE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN SURVIVING]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]"
+                      name="Copy of CHILDREN SURVIVING"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN EVER BORN]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]"
+                      name="Copy of CHILDREN EVER BORN"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF HOUSE]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]"
+                      name="TYPE OF HOUSE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[PAN CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PAN CARD]"
+                      name="PAN CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[RATION CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RATION CARD]"
+                      name="RATION CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[ADHAR CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]"
+                      name="ADHAR CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      length="12"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[AREA]"
+                      name="AREA"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CITY]"
+                      name="CITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="PERSON_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[DOOR NUMBER]"
+                      dataType="i2"
+                      name="DOOR NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      name="Copy of DOB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="GENDER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CURRENT MARRTIAL STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="RELIGION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CASTE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="DISABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="TYPE OF DISABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="LITERACY STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CURRENTSTATUS OF ATTENDANCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="HIGHEST EDUCATION LEVEL " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="OCCUPATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="NATURE OF INDUSTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[SALARY]"
+                      dataType="r4"
+                      name="SALARY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="MODE OF TRAVELLING TO WORK PLACE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      name="Copy of CHILDREN SURVIVING" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      name="Copy of CHILDREN EVER BORN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TYPE OF HOUSE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="PAN CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RATION CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ADHAR CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CITY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                      name="PERSON_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[DOOR NUMBER]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[DOOR NUMBER]"
+                      name="DOOR NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of DOB]"
+                      name="Copy of DOB" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      name="GENDER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CURRENT MARRTIAL STATUS]"
+                      name="CURRENT MARRTIAL STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[RELIGION]"
+                      name="RELIGION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CASTE]"
+                      name="CASTE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[DISABILITY]"
+                      name="DISABILITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF DISABILITY]"
+                      name="TYPE OF DISABILITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[LITERACY STATUS]"
+                      name="LITERACY STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      name="CURRENTSTATUS OF ATTENDANCE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      name="HIGHEST EDUCATION LEVEL " />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[OCCUPATION]"
+                      name="OCCUPATION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[NATURE OF INDUSTRY]"
+                      name="NATURE OF INDUSTRY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      name="SECTOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[SALARY]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[SALARY]"
+                      name="SALARY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      name="MODE OF TRAVELLING TO WORK PLACE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN SURVIVING]"
+                      name="Copy of CHILDREN SURVIVING" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN EVER BORN]"
+                      name="Copy of CHILDREN EVER BORN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF HOUSE]"
+                      name="TYPE OF HOUSE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[PAN CARD]"
+                      name="PAN CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[RATION CARD]"
+                      name="RATION CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ADHAR CARD]"
+                      name="ADHAR CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      name="AREA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      name="CITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\fact_census_occupation"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="fact_census_occupation"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[fact_census_edu]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\fact_census_occupation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="IgnoreFailure"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[PERSON_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="PERSON_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[person_id]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[GENDER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="GENDER"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[GENDER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[RELIGION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="RELIGION"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[religion]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RELIGION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[CASTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CASTE"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[caste]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CASTE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[DISABILITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DISABILITY"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[disability]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DISABILITY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[SECTOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="SECTOR"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[sector]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SECTOR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[SALARY]"
+                      cachedDataType="r4"
+                      cachedName="SALARY"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[SALARY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[AREA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="AREA"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[area]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[AREA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[education_id]"
+                      cachedDataType="i4"
+                      cachedName="education_id"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[education_id]"
+                      lineageId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Match Output].Columns[education_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[city_id]"
+                      cachedDataType="i4"
+                      cachedName="city_id"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                      lineageId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Match Output].Columns[city_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[DOOR NUMBER]"
+                      cachedDataType="i2"
+                      cachedName="DOOR NUMBER"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[door_num]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[Copy of DOB]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of DOB"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[CURRENT MARRTIAL STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CURRENT MARRTIAL STATUS"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[marital_status]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[TYPE OF DISABILITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="TYPE OF DISABILITY"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[type_of_disability]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CURRENTSTATUS OF ATTENDANCE"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[status_of_attendance]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[HIGHEST EDUCATION LEVEL ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="HIGHEST EDUCATION LEVEL "
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[highest_education]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[NATURE OF INDUSTRY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="NATURE OF INDUSTRY"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[nature_of_industry]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[Copy of CHILDREN SURVIVING]"
+                      cachedDataType="i2"
+                      cachedName="Copy of CHILDREN SURVIVING"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[children_surviving]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[Copy of CHILDREN EVER BORN]"
+                      cachedDataType="i2"
+                      cachedName="Copy of CHILDREN EVER BORN"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[children_ever_born]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      cachedDataType="i2"
+                      cachedName="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[persons_expired_in_10yr]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[TYPE OF HOUSE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TYPE OF HOUSE"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[type_of_house]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[PAN CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="PAN CARD"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[pan_card]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PAN CARD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[RATION CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="RATION CARD"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[ration_card]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[RATION CARD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[ADHAR CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ADHAR CARD"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[adhar_card]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[LITERACY STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="LITERACY STATUS"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[literacy_status]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="MODE OF TRAVELLING TO WORK PLACE"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[mode_of_transport]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      externalMetadataColumnId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CITY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[person_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="person_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[door_num]"
+                      dataType="i2"
+                      name="door_num" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="gender" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[dob]"
+                      dataType="dbDate"
+                      name="dob" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[marital_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="marital_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[religion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="religion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[caste]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="caste" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[disability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="disability" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[type_of_disability]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="type_of_disability" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[status_of_attendance]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="status_of_attendance" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[education_id]"
+                      dataType="i4"
+                      name="education_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[highest_education]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="highest_education" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[nature_of_industry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="nature_of_industry" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[sector]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="sector" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[salary]"
+                      dataType="r4"
+                      name="salary" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[children_surviving]"
+                      dataType="i2"
+                      name="children_surviving" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[children_ever_born]"
+                      dataType="i2"
+                      name="children_ever_born" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[persons_expired_in_10yr]"
+                      dataType="i2"
+                      name="persons_expired_in_10yr" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[type_of_house]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="type_of_house" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[pan_card]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="pan_card" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[ration_card]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ration_card" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[adhar_card]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="adhar_card" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[area]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="area" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                      dataType="i4"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[literacy_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="literacy_status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[mode_of_transport]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="mode_of_transport" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="city_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\fact_census_occupation.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\fact_census_occupation.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\fact_census_occupation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\fact_census_occupation.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup_city"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup_city"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimen_city]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimen_city]) [refTable]
+where [refTable].[city_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="city_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CITY]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup_city.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[CITY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">city_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Match Output].Columns[city_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Match Output].Columns[city_id]"
+                      name="city_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">city_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup_education"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup_education"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dim_edu]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dim_edu]) [refTable]
+where [refTable].[highest_education] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="education_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="highest_education" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup_education.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input].Columns[HIGHEST EDUCATION LEVEL ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="HIGHEST EDUCATION LEVEL "
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">highest_education</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Match Output].Columns[education_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Match Output].Columns[education_id]"
+                      name="education_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">education_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup_nomatch"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup_nomatch"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[fact_census_edu]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[fact_census_edu]) [refTable]
+where [refTable].[person_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="person_id" dataType="DT_STR" length="4" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="door_num" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="gender" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="dob" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="marital_status" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="religion" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="caste" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="disability" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="type_of_disability" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="status_of_attendance" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="education_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="highest_education" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="nature_of_industry" dataType="DT_STR" length="17" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="sector" dataType="DT_STR" length="13" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="salary" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="children_surviving" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="children_ever_born" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="persons_expired_in_10yr" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="type_of_house" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="pan_card" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ration_card" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="adhar_card" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="area" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="literacy_status" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mode_of_transport" dataType="DT_STR" length="7" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="city_name" dataType="DT_STR" length="9" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup_nomatch.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input].Columns[PERSON_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="PERSON_ID"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">person_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Lookup_occupation"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup_occupation"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dim_occupation]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dim_occupation]) [refTable]
+where [refTable].[occupation_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="occupation_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="occupation_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Lookup_occupation.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input].Columns[OCCUPATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="OCCUPATION"
+                      lineageId="Package\Data Flow Task\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">occupation_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Match Output].Columns[occupation_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Match Output].Columns[occupation_id]"
+                      name="occupation_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">occupation_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output]"
+              endId="Package\Data Flow Task\Lookup_occupation.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup_education.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output1]"
+              endId="Package\Data Flow Task\Lookup_city.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup_occupation.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup Match Output2]"
+              endId="Package\Data Flow Task\Lookup_nomatch.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Data Flow Task\Lookup_city.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task\fact_census_occupation.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task\Lookup_nomatch.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Lookup_education.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\census.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="193,185" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Data Flow Task\fact_census_occupation"
+          TopLeft="191,372" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Data Flow Task\Lookup_occupation"
+          TopLeft="198,141" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Data Flow Task\Lookup_nomatch"
+          TopLeft="206,291" />
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Data Flow Task\Lookup_education"
+          TopLeft="206,73" />
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Data Flow Task\Lookup_city"
+          TopLeft="219,211" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Data Flow Task\census"
+          TopLeft="227,4" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="285.5,46">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
+          TopLeft="286.25,333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,9.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output2]"
+          TopLeft="286.25,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output1]"
+          TopLeft="284.75,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,4.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="285.75,115">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,3.4453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="--&gt;source file"
+          ParentId="Package\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="101,60"
+          Id="dfa75255-0f18-41a0-b675-852d007c92fe"
+          TopLeft="337,0" />
+        <AnnotationLayout
+          Text="--&gt;fact table of occupation"
+          ParentId="Package\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="172,60"
+          Id="d55fb4d3-c2a7-49e0-be41-109f4a5bfc15"
+          TopLeft="381,368" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\fact_census_occupation">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup_occupation">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_occupation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup_nomatch">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[fact_census_edu]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup_education">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dim_edu]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup_city">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimen_city]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\census">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

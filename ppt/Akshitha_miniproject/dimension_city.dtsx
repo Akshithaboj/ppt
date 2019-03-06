@@ -1,0 +1,2218 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/2/2019 10:29:49 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="CHNSIPDT0T1119"
+  DTS:CreatorName="CORP\ABOJAGAR"
+  DTS:DTSID="{3E342175-88BA-42EB-B688-002B28F324FB}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="dimension_city"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{148DBF24-AC3B-4298-AD50-E1E076E44B0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8C4CB111-9371-4221-AAEC-FFCFF2AB20BF}"
+      DTS:ObjectName="blrinforma.trainingdb_chennai.bissis3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=blrinforma;User ID=bissis3;Initial Catalog=trainingdb_chennai;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAf0maE4ca1k2jUt22vUrZswAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACJBTtvtOqCtCVHu1a7rnl6AAAAAASAAACgAAAAEAAAAJKDbr67FeLOAyl/YfKYPukQAAAAunBVp8KiYRJkKA3RQtFQMxQAAADu1dJYfDVKwYn/88bV4DPEkj71KQ</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task4"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BD94A2F5-D275-4EB8-B0D7-7E78CD256009}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task4"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task4\census"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="census"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[cr_1]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task4\census.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]"
+                      name="PERSON_ID"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[DOOR NUMBER]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]"
+                      name="DOOR NUMBER"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      length="6"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[GENDER]"
+                      name="GENDER"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENT MARRTIAL STATUS]"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]"
+                      name="CURRENT MARRTIAL STATUS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[RELIGION]"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RELIGION]"
+                      name="RELIGION"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CASTE]"
+                      length="5"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CASTE]"
+                      name="CASTE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[DISABILITY]"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DISABILITY]"
+                      name="DISABILITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF DISABILITY]"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]"
+                      name="TYPE OF DISABILITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[LITERACY STATUS]"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]"
+                      name="LITERACY STATUS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENTSTATUS OF ATTENDANCE]"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      name="CURRENTSTATUS OF ATTENDANCE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[HIGHEST EDUCATION LEVEL ]"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      name="HIGHEST EDUCATION LEVEL "
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[OCCUPATION]"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]"
+                      name="OCCUPATION"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[NATURE OF INDUSTRY]"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]"
+                      name="NATURE OF INDUSTRY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      length="13"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SECTOR]"
+                      name="SECTOR"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SALARY]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[SALARY]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SALARY]"
+                      name="SALARY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[MODE OF TRAVELLING TO WORK PLACE]"
+                      length="7"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      name="MODE OF TRAVELLING TO WORK PLACE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF HOUSE]"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]"
+                      name="TYPE OF HOUSE"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[PAN CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PAN CARD]"
+                      name="PAN CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[RATION CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RATION CARD]"
+                      name="RATION CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[ADHAR CARD]"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]"
+                      name="ADHAR CARD"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[AREA]"
+                      name="AREA"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]"
+                      name="CITY"
+                      truncationRowDisposition="IgnoreFailure" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of DOB]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]"
+                      name="Copy of DOB"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN SURVIVING]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]"
+                      name="Copy of CHILDREN SURVIVING"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN EVER BORN]"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]"
+                      name="Copy of CHILDREN EVER BORN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="PERSON_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[DOOR NUMBER]"
+                      dataType="i2"
+                      name="DOOR NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="GENDER" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CURRENT MARRTIAL STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="RELIGION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CASTE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="DISABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="TYPE OF DISABILITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="LITERACY STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="CURRENTSTATUS OF ATTENDANCE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="HIGHEST EDUCATION LEVEL " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="OCCUPATION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="NATURE OF INDUSTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[SALARY]"
+                      dataType="r4"
+                      name="SALARY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      name="MODE OF TRAVELLING TO WORK PLACE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TYPE OF HOUSE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="PAN CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RATION CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="ADHAR CARD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="AREA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      name="CITY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      name="Copy of DOB" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      name="Copy of CHILDREN SURVIVING" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].ExternalColumns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      name="Copy of CHILDREN EVER BORN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[PERSON_ID]"
+                      name="PERSON_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[DOOR NUMBER]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[DOOR NUMBER]"
+                      name="DOOR NUMBER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[GENDER]"
+                      name="GENDER" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CURRENT MARRTIAL STATUS]"
+                      name="CURRENT MARRTIAL STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[RELIGION]"
+                      name="RELIGION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CASTE]"
+                      name="CASTE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[DISABILITY]"
+                      name="DISABILITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF DISABILITY]"
+                      name="TYPE OF DISABILITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[LITERACY STATUS]"
+                      name="LITERACY STATUS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      name="CURRENTSTATUS OF ATTENDANCE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      name="HIGHEST EDUCATION LEVEL " />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[OCCUPATION]"
+                      name="OCCUPATION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[NATURE OF INDUSTRY]"
+                      name="NATURE OF INDUSTRY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[SECTOR]"
+                      name="SECTOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[SALARY]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[SALARY]"
+                      name="SALARY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      name="MODE OF TRAVELLING TO WORK PLACE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[TYPE OF HOUSE]"
+                      name="TYPE OF HOUSE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[PAN CARD]"
+                      name="PAN CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[RATION CARD]"
+                      name="RATION CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ADHAR CARD]"
+                      name="ADHAR CARD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[AREA]"
+                      name="AREA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[CITY]"
+                      name="CITY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of DOB]"
+                      name="Copy of DOB" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN SURVIVING]"
+                      name="Copy of CHILDREN SURVIVING" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[Copy of CHILDREN EVER BORN]"
+                      name="Copy of CHILDREN EVER BORN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task4\Conditional Split"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task4\Conditional Split.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(CITY)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task4\dimension_city"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="dimension_city"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dimen_city]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task4\dimension_city.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CITY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input].ExternalColumns[city_id]"
+                      dataType="i4"
+                      name="city_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input].ExternalColumns[city_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="city_name" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task4\dimension_city.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\dimension_city.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\dimension_city.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\dimension_city.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\dimension_city.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task4\Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[dimen_city]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[dimen_city]) [refTable]
+where [refTable].[city_name] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="city_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CITY]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task4\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  connectionManagerRefId="Package.ConnectionManagers[blrinforma.trainingdb_chennai.bissis3]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CITY]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">city_name</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task4\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Lookup.Outputs[Lookup Match Output].Columns[city_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Data Flow Task4\Lookup.Outputs[Lookup Match Output].Columns[city_id]"
+                      name="city_id"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">city_id</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task4\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task4\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task4\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task4\Sort"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task4\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[PERSON_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="PERSON_ID"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[DOOR NUMBER]"
+                      cachedDataType="i2"
+                      cachedName="DOOR NUMBER"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[GENDER]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="GENDER"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[GENDER]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[CURRENT MARRTIAL STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CURRENT MARRTIAL STATUS"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[RELIGION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="RELIGION"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RELIGION]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[CASTE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CASTE"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CASTE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[DISABILITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DISABILITY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DISABILITY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[TYPE OF DISABILITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="TYPE OF DISABILITY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[LITERACY STATUS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="LITERACY STATUS"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="CURRENTSTATUS OF ATTENDANCE"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[HIGHEST EDUCATION LEVEL ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="HIGHEST EDUCATION LEVEL "
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[OCCUPATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="OCCUPATION"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[NATURE OF INDUSTRY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="NATURE OF INDUSTRY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[SECTOR]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="SECTOR"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SECTOR]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[SALARY]"
+                      cachedDataType="r4"
+                      cachedName="SALARY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SALARY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="7"
+                      cachedName="MODE OF TRAVELLING TO WORK PLACE"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      cachedDataType="i2"
+                      cachedName="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[TYPE OF HOUSE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TYPE OF HOUSE"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[PAN CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="PAN CARD"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PAN CARD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[RATION CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="RATION CARD"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RATION CARD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[ADHAR CARD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="ADHAR CARD"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[AREA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="AREA"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[AREA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[CITY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="9"
+                      cachedName="CITY"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[Copy of DOB]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Copy of DOB"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[Copy of CHILDREN SURVIVING]"
+                      cachedDataType="i2"
+                      cachedName="Copy of CHILDREN SURVIVING"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task4\Sort.Inputs[Sort Input].Columns[Copy of CHILDREN EVER BORN]"
+                      cachedDataType="i2"
+                      cachedName="Copy of CHILDREN EVER BORN"
+                      lineageId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task4\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[PERSON_ID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[PERSON_ID]"
+                      name="PERSON_ID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PERSON_ID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[DOOR NUMBER]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[DOOR NUMBER]"
+                      name="DOOR NUMBER">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DOOR NUMBER]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[GENDER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[GENDER]"
+                      name="GENDER">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[GENDER]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CURRENT MARRTIAL STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CURRENT MARRTIAL STATUS]"
+                      name="CURRENT MARRTIAL STATUS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENT MARRTIAL STATUS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[RELIGION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[RELIGION]"
+                      name="RELIGION">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RELIGION]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CASTE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CASTE]"
+                      name="CASTE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CASTE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[DISABILITY]"
+                      name="DISABILITY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[DISABILITY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[TYPE OF DISABILITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[TYPE OF DISABILITY]"
+                      name="TYPE OF DISABILITY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF DISABILITY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[LITERACY STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[LITERACY STATUS]"
+                      name="LITERACY STATUS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[LITERACY STATUS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CURRENTSTATUS OF ATTENDANCE]"
+                      name="CURRENTSTATUS OF ATTENDANCE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CURRENTSTATUS OF ATTENDANCE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[HIGHEST EDUCATION LEVEL ]"
+                      name="HIGHEST EDUCATION LEVEL ">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[HIGHEST EDUCATION LEVEL ]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[OCCUPATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[OCCUPATION]"
+                      name="OCCUPATION">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[OCCUPATION]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[NATURE OF INDUSTRY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[NATURE OF INDUSTRY]"
+                      name="NATURE OF INDUSTRY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NATURE OF INDUSTRY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[SECTOR]"
+                      name="SECTOR">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SECTOR]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[SALARY]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[SALARY]"
+                      name="SALARY">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[SALARY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="7"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[MODE OF TRAVELLING TO WORK PLACE]"
+                      name="MODE OF TRAVELLING TO WORK PLACE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[MODE OF TRAVELLING TO WORK PLACE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]"
+                      name="NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[NUMBER OF PERSONS EXPIRED IN LAST 10 YEARS]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[TYPE OF HOUSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[TYPE OF HOUSE]"
+                      name="TYPE OF HOUSE">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[TYPE OF HOUSE]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[PAN CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[PAN CARD]"
+                      name="PAN CARD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[PAN CARD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[RATION CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[RATION CARD]"
+                      name="RATION CARD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[RATION CARD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[ADHAR CARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[ADHAR CARD]"
+                      name="ADHAR CARD">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[ADHAR CARD]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[AREA]"
+                      name="AREA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[AREA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="9"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[CITY]"
+                      name="CITY"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[CITY]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of DOB]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of DOB]"
+                      name="Copy of DOB">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of DOB]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of CHILDREN SURVIVING]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of CHILDREN SURVIVING]"
+                      name="Copy of CHILDREN SURVIVING">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN SURVIVING]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of CHILDREN EVER BORN]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task4\Sort.Outputs[Sort Output].Columns[Copy of CHILDREN EVER BORN]"
+                      name="Copy of CHILDREN EVER BORN">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task4\census.Outputs[OLE DB Source Output].Columns[Copy of CHILDREN EVER BORN]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task4.Paths[Conditional Split Default Output]"
+              endId="Package\Data Flow Task4\Sort.Inputs[Sort Input]"
+              name="Conditional Split Default Output"
+              startId="Package\Data Flow Task4\Conditional Split.Outputs[Conditional Split Default Output]" />
+            <path
+              refId="Package\Data Flow Task4.Paths[Lookup No Match Output]"
+              endId="Package\Data Flow Task4\dimension_city.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Data Flow Task4\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Data Flow Task4.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task4\Conditional Split.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task4\census.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task4.Paths[Sort Output]"
+              endId="Package\Data Flow Task4\Lookup.Inputs[Lookup Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task4\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Data Flow Task4"
+          TopLeft="184,88" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task4">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="98,42"
+          Id="Package\Data Flow Task4\Sort"
+          TopLeft="232,195" />
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Data Flow Task4\dimension_city"
+          TopLeft="205,373" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task4\Conditional Split"
+          TopLeft="207,107" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Data Flow Task4\Lookup"
+          TopLeft="224,287" />
+        <NodeLayout
+          Size="111,42"
+          Id="Package\Data Flow Task4\census"
+          TopLeft="234,17" />
+        <EdgeLayout
+          Id="Package\Data Flow Task4.Paths[Sort Output]"
+          TopLeft="280.75,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task4.Paths[OLE DB Source Output]"
+          TopLeft="287,59">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task4.Paths[Lookup No Match Output]"
+          TopLeft="280,329">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,12.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task4.Paths[Conditional Split Default Output]"
+          TopLeft="282.75,149">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.61390625,13.4208984375,141.2278125,11.658203125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="--&gt;source table&#xA;"
+          ParentId="Package\Data Flow Task4"
+          FontInfo="{assembly:Null}"
+          Size="111,56"
+          Id="05ae9847-5139-43ea-b6b8-eda805291f94"
+          TopLeft="346,11" />
+        <AnnotationLayout
+          Text="--&gt;dimension table for city&#xA;"
+          ParentId="Package\Data Flow Task4"
+          FontInfo="{assembly:Null}"
+          Size="172,56"
+          Id="0f529271-4c87-42b0-bc49-31b8aeda8da5"
+          TopLeft="373,372" />
+        <AnnotationLayout
+          Text="--&gt;sorting of input value of city in ascending order"
+          ParentId="Package\Data Flow Task4"
+          FontInfo="{assembly:Null}"
+          Size="298,60"
+          Id="f4d4ff10-f6c6-4bc5-89b5-16983c7c2886"
+          TopLeft="331,187" />
+        <AnnotationLayout
+          Text="--&gt;isnull condition for city"
+          ParentId="Package\Data Flow Task4"
+          FontInfo="{assembly:Null}"
+          Size="167,60"
+          Id="0cc4b1f0-d33f-4295-a837-7c1c3b9f2fcc"
+          TopLeft="362,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task4\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dimen_city]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task4\census">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task4\dimension_city">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
